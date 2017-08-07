@@ -4,6 +4,7 @@
 	<title>layout-tryout</title>
 
 	<!-- build:css css/styles.min.css -->
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<!-- endbuild -->
 	
@@ -12,6 +13,14 @@
 	<!-- endbuild -->
 </head>
 <body>
-	<p>hallo</p>
+	<div class="main-wrapper">
+		<div class="bar nav-bar"></div>
+		<div class="bar channel-bar"></div>
+		<div class="video-container">
+			<img class="video" src="images/video.png"></img>
+		</div>
+		<div class="playlist-container"></div>
+	</div>
+	<div class="bar control-bar"></div>
 </body>
 </html>
