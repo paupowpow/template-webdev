@@ -9,9 +9,9 @@ Quick starting my web dev projects. Includes:
 I followed this neat [tutorial](https://css-tricks.com/gulp-for-beginners/).
 
 ## requirements
-Install Node.js and npm by following this (guide)[https://www.npmjs.com/get-npm]
-`node -v` to check that you have Node.js
-`npm -v` to check that you have npm installed
+Install Node.js and npm by following this [guide](https://www.npmjs.com/get-npm)
+* `node -v` to check that you have Node.js
+* `npm -v` to check that you have npm installed
 
 ## setup
 1. `git clone https://github.com/paupowpow/template-webdev.git` to download the repository
