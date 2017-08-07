@@ -1,5 +1,11 @@
-# template-gulp
-Quick start web development: A template project using Sass, Browser Sync and running on a local server.
+# template-webdev
+Quick starting my web dev projects. Includes:
+
+* local webserver
+* sass to css
+* automatic browser refresh
+* tasks for optimizing assets for productions
+
 I followed this neat [tutorial](https://css-tricks.com/gulp-for-beginners/).
 
 ## getting started
