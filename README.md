@@ -1,6 +1,5 @@
 # template-webdev
-Quick starting my web dev projects. Includes:
-
+Quick starting my/your/our web dev projects. Includes:
 * local webserver
 * sass to css
 * automatic browser refresh
