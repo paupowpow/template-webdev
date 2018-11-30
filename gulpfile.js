@@ -2,12 +2,15 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
-var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var del = require('del');
 var runSequence = require('run-sequence');
+
+const uglifyes = require('uglify-es');
+const composer = require('gulp-uglify/composer');
+const uglify = composer(uglifyes, console);
 
 gulp.task('sass', function() {
 	return gulp.src('app/scss/**/*.scss')
@@ -41,7 +44,7 @@ gulp.task('useref', function () {
 });
 
 gulp.task('images', function () {
-	return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
+	return gulp.src('app/images/**/*.+(png|jpg|gif|svg|ico)')
 		.pipe(imagemin({
 			interlaced: true
 		}))
