@@ -21,12 +21,6 @@ gulp.task('sass', function() {
 		}))
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function() {
-	gulp.watch('app/scss/**/*.scss', ['sass']);
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
-});
-
 gulp.task('browserSync', function() {
 	browserSync.init({
 		server: {
@@ -34,6 +28,12 @@ gulp.task('browserSync', function() {
 		},
 	})
 });
+
+gulp.task('watch', gulp.series('browserSync', 'sass', function() {
+	gulp.watch('app/scss/**/*.scss', ['sass']);
+	gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch('app/js/**/*.js', browserSync.reload);
+}));
 
 gulp.task('useref', function () {
 	return gulp.src('app/*.html')
@@ -64,15 +64,16 @@ gulp.task('cache:clear', function (callback) {
 	return cache.clearAll(callback)
 });
 
-gulp.task('build', function (callback) {
-	runSequence('clean:dist', 
-		[`sass`, `useref`, `images`, `fonts`],
-		callback
-	)
-});
+gulp.task('build', gulp.series(
+	'clean:dist',
+	gulp.parallel(
+		`sass`,
+		`useref`,
+		`images`,
+		`fonts`)));
 
-gulp.task('default', function (callback) {
-	runSequence(['sass', 'browserSync', 'watch'],
-		callback
-	)
-});
+gulp.task('default', gulp.series(
+	gulp.parallel(
+		'sass',
+		'browserSync',
+		'watch')));
