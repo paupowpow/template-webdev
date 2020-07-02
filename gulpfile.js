@@ -13,7 +13,7 @@ const composer = require('gulp-uglify/composer');
 const uglify = composer(uglifyes, console);
 
 gulp.task('sass', function() {
-	return gulp.src('app/scss/**/*.scss')
+	return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss and children dirs
 		.pipe(sass()) // converts sass to css
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({
@@ -75,5 +75,4 @@ gulp.task('build', gulp.series(
 gulp.task('default', gulp.series(
 	gulp.parallel(
 		'sass',
-		'browserSync',
 		'watch')));
